@@ -9,12 +9,13 @@ export const BOXLETTER = styled.div`
     border: 20px solid black;
     display: flex;
 
+
 `
 export const LETTER = styled.span`
     font-size: 70px;
     border: 3px solid black;
-    height: 100px;
-    width: 100px;
+    height: 400px;
+    width: 400px;
     line-height: 1.5;
     text-transform: uppercase;
     background-color: white;
@@ -24,8 +25,8 @@ export const LETTER = styled.span`
 export const BLANKSQUARE = styled.span`
     font-size: 70px;
     border: 3px solid black;
-    height: 100px;
-    width: 100px;
+    height: 400px;
+    width: 400px;
     line-height: 1.5;
     text-transform: uppercase;
     background-color: white;

@@ -21,6 +21,11 @@ function App() {
   const [pickedCategory, setPickedCategory] = useState("")
   const [letter, setLetter] = useState([])
 
+  const [guessedLetters, setGuessedLetters] = useState([])
+  const [wrongLetters, setWrongletters] = useState([])
+  const [guesses, setGuesses] = useState(3)
+  const [score, setScore] = useState(0)
+
   const pickedWordAndCategory = () => {
     const categories = Object.keys(words)
     const category = categories[Math.floor(Math.random() * Object.keys(categories).length)]
@@ -29,7 +34,10 @@ function App() {
     console.log(word)
 
     return { word, category }
+
   }
+
+
 
 
 
@@ -42,12 +50,14 @@ function App() {
     let wordsLetter = word.split("")
     setPickedWord(words)
     setPickedCategory(category)
-    setLetter(letter)
+    setLetter(wordsLetter)
     setGameStage(stages[1].name)
+
+
   }
 
-  const verifyLetter = () => {
-    setGameStage(stages[2].name)
+  const verifyLetter = (letter) => {
+    console.log(letter)
 
   }
   const newGame = () => {
@@ -59,7 +69,17 @@ function App() {
   return (<div className='App'>
     <GlobalStyle />
     {gameStage === "start" && <ScreenGame startGame={startGame} />}
-    {gameStage === "game" && <GameStart verifyLetter={verifyLetter} />}
+    {gameStage === "game" && <GameStart
+      verifyLetter={verifyLetter}
+      pickedWord={pickedWord}
+      pickedCategory={pickedCategory}
+      letter={letter}
+      score={score}
+      wrongLetters={wrongLetters}
+      guesses={guesses}
+      guessedLetters={guessedLetters} />}
+
+
     {gameStage === "end" && <EndGame newGame={newGame} />}
   </div>
 
